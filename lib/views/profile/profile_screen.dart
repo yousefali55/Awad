@@ -1,3 +1,4 @@
+import 'package:awadproject/views/personal_register/personal_register.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -11,20 +12,20 @@ class ProfileScreen extends StatelessWidget {
 
   final List<String> svgs = [
     'assets/svgs/personal.svg',
-    'assets/svgs/about.svg',
+    'assets/svgs/security.svg',
     'assets/svgs/favorites.svg',
-    'assets/svgs/about.svg',
-    'assets/svgs/contact.svg',
-    'assets/svgs/settings.svg',
+    'assets/svgs/rate_us.svg',
+    'assets/svgs/help.svg',
+    'assets/svgs/about_us.svg',
     'assets/svgs/logout.svg'
   ];
   final List<String> categoryName = [
-    'Personal details and Adresses',
-    ' About Us',
+    'General Inforamtion',
+    'Security',
     'Favourites',
+    'Rate Us',
     'Help',
-    'Contact',
-    'Settings',
+    'About Us',
     'Logout',
   ];
 
@@ -32,9 +33,9 @@ class ProfileScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        backgroundColor: Color(0xFFFFF9EB),
+        backgroundColor: const Color(0xFFFFF9EB),
         body: Padding(
-          padding: EdgeInsets.only(left: 10, top: 10, right: 10),
+          padding: const EdgeInsets.only(left: 10, top: 10, right: 10),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
@@ -43,7 +44,9 @@ class ProfileScreen extends StatelessWidget {
                 children: [
                   SvgPicture.asset('assets/svgs/narrow_back.svg'),
                   GestureDetector(
-                    onTap: (){},
+                    onTap: (){
+                      Navigator.push(context, MaterialPageRoute(builder: (_) => const PersonlaRegister()),);
+                    },
                     child: Container(
                       height: 48,
                       width: 48,

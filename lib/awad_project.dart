@@ -8,7 +8,7 @@ class AwadProject extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return  ScreenUtilInit(
-      designSize: Size(812,375),
+      designSize: const Size(812,375),
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         home: ProfileScreen(),
