@@ -1,20 +1,46 @@
+import 'package:awadproject/spacing/spacing.dart';
+import 'package:awadproject/theming/colors_manager.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class CustomTextFormField extends StatelessWidget {
-  const CustomTextFormField({super.key});
+  final String text;
+  const CustomTextFormField({super.key, required this.text});
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(10.0),
-      child: TextFormField(
-        
-      decoration: InputDecoration(
-        // hintText: ,
-        border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(2),
-        )
-       ),
+      padding: EdgeInsets.only(
+        left: 20.w,
+        right: 200.w,
+      ),
+      child: Column(
+        children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text(
+                text,
+                style: GoogleFonts.changa(
+                  color: ColorsManager.navyBlue,
+                  fontWeight: FontWeight.w400,
+                  fontSize: 14,
+                ),
+              ),
+              SvgPicture.asset('assets/svgs/write.svg'),
+            ],
+          ),
+          heightSpace(5),
+          TextFormField(
+            decoration: InputDecoration(
+                border: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(2),
+            )),
+          ),
+          heightSpace(15),
+        ],
       ),
     );
   }

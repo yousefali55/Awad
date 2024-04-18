@@ -1,13 +1,31 @@
-import 'package:awadproject/spacing/spacing.dart';
-import 'package:awadproject/theming/colors_manager.dart';
-import 'package:awadproject/views/personal_register/widgets/custon_text_form_field.dart';
+// ignore_for_file: public_member_api_docs, sort_constructors_first
+import 'package:awadproject/multible_widgets/two_buttons_in_two_screens.dart';
+import 'package:awadproject/views/security/security.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import 'package:awadproject/spacing/spacing.dart';
+import 'package:awadproject/theming/colors_manager.dart';
+import 'package:awadproject/views/personal_register/widgets/custon_text_form_field.dart';
+
 class PersonlaRegister extends StatelessWidget {
-  const PersonlaRegister({super.key});
+  List<String> textfields = [
+    'Name',
+    'Change E-mail address',
+    'Gender',
+    'Location',
+    'Phone number',
+    'Nationality',
+    'Birth of date',
+    'Website URL',
+    'Company',
+    'Other Website',
+  ];
+  PersonlaRegister({
+    Key? key,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -42,7 +60,7 @@ class PersonlaRegister extends StatelessWidget {
               ),
             ),
             Padding(
-              padding: EdgeInsets.only(left: 35),
+              padding: const EdgeInsets.only(left: 35),
               child: Row(
                 children: [
                   SvgPicture.asset(
@@ -78,7 +96,25 @@ class PersonlaRegister extends StatelessWidget {
                 fontWeight: FontWeight.w400,
               ),
             ),
-            CustomTextFormField()
+            heightSpace(10),
+            Expanded(
+              child: ListView.builder(
+                itemCount: textfields.length,
+                itemBuilder: (BuildContext context, int index) {
+                  return CustomTextFormField(text: textfields[index]);
+                },
+              ),
+            ),
+            TwoButtonsInTwoScreens(
+              onPressedDiscared: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (_) => SecurityScreen(),
+                  ),
+                );
+              },
+            )
           ],
         ),
       ),

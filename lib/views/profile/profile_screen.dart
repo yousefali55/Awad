@@ -45,7 +45,7 @@ class ProfileScreen extends StatelessWidget {
                   SvgPicture.asset('assets/svgs/narrow_back.svg'),
                   GestureDetector(
                     onTap: (){
-                      Navigator.push(context, MaterialPageRoute(builder: (_) => const PersonlaRegister()),);
+                      Navigator.push(context, MaterialPageRoute(builder: (_) =>  PersonlaRegister()),);
                     },
                     child: Container(
                       height: 48,
