@@ -1,3 +1,4 @@
+import 'package:awadproject/views/about/about.dart';
 import 'package:awadproject/views/personal_register/personal_register.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -42,10 +43,18 @@ class ProfileScreen extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  SvgPicture.asset('assets/svgs/narrow_back.svg'),
                   GestureDetector(
-                    onTap: (){
-                      Navigator.push(context, MaterialPageRoute(builder: (_) =>  PersonlaRegister()),);
+                      onTap: () {
+                        Navigator.push(context,
+                            MaterialPageRoute(builder: (_) => AboutView()));
+                      },
+                      child: SvgPicture.asset('assets/svgs/narrow_back.svg')),
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (_) => PersonlaRegister()),
+                      );
                     },
                     child: Container(
                       height: 48,
@@ -58,7 +67,6 @@ class ProfileScreen extends StatelessWidget {
                         scale: 0.3,
                         child: SvgPicture.asset(
                           'assets/svgs/x.svg',
-                        
                         ),
                       ),
                     ),

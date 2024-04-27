@@ -1,6 +1,7 @@
 import 'package:awadproject/multible_widgets/two_buttons_in_two_screens.dart';
 import 'package:awadproject/spacing/spacing.dart';
 import 'package:awadproject/theming/colors_manager.dart';
+import 'package:awadproject/views/help/help_view.dart';
 import 'package:awadproject/views/security/widgets/card_container.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -59,14 +60,39 @@ class SecurityScreen extends StatelessWidget {
                     desc:
                         'Change your password regularly to keep \n your account secure',
                     textButton: 'Change Password',
-                    onPressed: () {}),
+                    onPressed: () {
+                      showAboutDialog(context: context, children: [
+                        Center(
+                          child: Text(
+                            'Change password',
+                            style: GoogleFonts.cairo(
+                              color: ColorsManager.darkBrown,
+                              fontWeight: FontWeight.w600,
+                              fontSize: 25,
+                            ),
+                          ),
+                        ),
+                        heightSpace(20),
+                        TextFormField(
+                          decoration: InputDecoration(
+                              border: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(2),
+                                  borderSide: const BorderSide(
+                                    color: ColorsManager.darkBrown,
+                                  ))),
+                        )
+                      ]);
+                    }),
                 heightSpace(8),
                 CardContainer(
                     maintext: 'Active Sessions',
                     desc:
                         'Selecting ‘Sign out’ will sign you out from \n all devices except this one.\nThe process can take up to 10 minutes.',
                     textButton: 'Sign out',
-                    onPressed: () {}),
+                    onPressed: () {
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (_) => const HelpView()));
+                    }),
                 heightSpace(8),
                 CardContainer(
                     maintext: 'Delete Account',
